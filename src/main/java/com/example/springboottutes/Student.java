@@ -3,6 +3,15 @@ package com.example.springboottutes;
 import javax.persistence.*;
 
 @Entity(name = "Student")
+@Table(
+        name = "student",
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "student_email_unique",
+                        columnNames = "email"
+                )
+        }
+)
 public class Student {
 
     @Id
@@ -34,8 +43,7 @@ public class Student {
     @Column(
             name = "email",
             nullable = false,
-            columnDefinition = "TEXT",
-            unique = true
+            columnDefinition = "TEXT"
     )
     private String email;
 
@@ -51,6 +59,10 @@ public class Student {
         this.lastName = lastName;
         this.email = email;
         this.age = age;
+    }
+
+    public Student() {
+
     }
 
     public Long getId() {
