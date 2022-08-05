@@ -24,7 +24,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<Student> addNewStudent(
+    public ResponseEntity<?> addNewStudent(
             @RequestBody Student student
     ) {
         studentService.addNewStudent(student);
@@ -50,5 +50,12 @@ public class StudentController {
             @PathVariable("name") String name
     ) {
         return new ResponseEntity<>(studentService.getStudentsByLastNameContaining(name), HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/emailby/name/{name}")
+    public ResponseEntity<String> getStudentEmailIdByName(
+            @PathVariable("name") String name
+    ) {
+        return new ResponseEntity<>(studentService.getStudentEmailIdByName(name), HttpStatus.OK);
     }
 }

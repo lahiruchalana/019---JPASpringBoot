@@ -34,4 +34,8 @@ public class StudentService {
     public List<Student> getStudentsByLastNameContaining(String name) {
         return studentRepository.getStudentByLastNameContaining(name);
     }
+
+    public String getStudentEmailIdByName(String name) {
+        return studentRepository.getStudentEmailIdByName(name);
+    }
 }

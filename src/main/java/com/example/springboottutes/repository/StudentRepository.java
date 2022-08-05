@@ -17,4 +17,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     Student getStudentByName(String name);
 
     List<Student> getStudentByLastNameContaining(String lastName);
+
+    @Query("select s.emailId from Student s where s.firstName = ?1")        // return the email of student -> s.emailId
+    String getStudentEmailIdByName(String name);           // when name provides the email will return
 }
