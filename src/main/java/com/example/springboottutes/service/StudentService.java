@@ -26,4 +26,8 @@ public class StudentService {
     public Student getStudentByEmailId(String email) {
         return studentRepository.getStudentByEmailId(email);
     }
+
+    public Student getStudentByName(String name) {
+        return studentRepository.getStudentByName(name);
+    }
 }

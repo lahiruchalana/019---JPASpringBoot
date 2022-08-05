@@ -38,4 +38,11 @@ public class StudentController {
         return new ResponseEntity<>(studentService.getStudentByEmailId(email), HttpStatus.OK);
     }
 
+    @GetMapping(path = "/name/{name}")
+    public ResponseEntity<Student> getStudentByName(
+            @PathVariable("name") String name
+    ){
+        return new ResponseEntity<>(studentService.getStudentByName(name), HttpStatus.OK);
+    }
+
 }
