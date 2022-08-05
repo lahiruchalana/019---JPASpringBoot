@@ -25,4 +25,14 @@ public class Guardian {
     private String name;
     private String email;
     private String mobile;
+
+    public Guardian(String name, String email, String mobile) {
+        this.name = name;
+        this.email = email;
+        this.mobile = mobile;
+    }
+
+    public Guardian() {
+
+    }
 }

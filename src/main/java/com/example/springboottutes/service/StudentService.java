@@ -18,4 +18,12 @@ public class StudentService {
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
+
+    public void addNewStudent(Student student) {
+        studentRepository.save(student);
+    }
+
+    public Student getStudentByEmailId(String email) {
+        return studentRepository.getStudentByEmailId(email);
+    }
 }

@@ -43,6 +43,10 @@ public class Student {
         this.guardian = guardian;
     }
 
+    public Student() {
+
+    }
+
     public Student(Long studentId, String firstName, String lastName, String emailId, Guardian guardian) {
         this.studentId = studentId;
         this.firstName = firstName;

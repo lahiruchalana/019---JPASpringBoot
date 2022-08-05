@@ -2,12 +2,9 @@ package com.example.springboottutes.controller;
 
 import com.example.springboottutes.entity.Student;
 import com.example.springboottutes.service.StudentService;
-import org.apache.catalina.LifecycleState;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +22,20 @@ public class StudentController {
     public ResponseEntity<List<Student>> getAllStudents() {
         return new ResponseEntity<>(studentService.getAllStudents(), HttpStatus.OK);
     }
+
+    @PostMapping
+    public ResponseEntity<Student> addNewStudent(
+            @RequestBody Student student
+    ) {
+        studentService.addNewStudent(student);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @GetMapping(path = "{email}")
+    public ResponseEntity<Student> getStudentByEmailId(
+            @PathVariable("email") String email
+    ) {
+        return new ResponseEntity<>(studentService.getStudentByEmailId(email), HttpStatus.OK);
+    }
+
 }
