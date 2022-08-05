@@ -30,4 +30,8 @@ public class StudentService {
     public Student getStudentByName(String name) {
         return studentRepository.getStudentByName(name);
     }
+
+    public List<Student> getStudentsByLastNameContaining(String name) {
+        return studentRepository.getStudentByLastNameContaining(name);
+    }
 }

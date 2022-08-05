@@ -45,4 +45,10 @@ public class StudentController {
         return new ResponseEntity<>(studentService.getStudentByName(name), HttpStatus.OK);
     }
 
+    @GetMapping(path = "/lastname/containing/{name}")
+    public ResponseEntity<List<Student>> getStudentsByLastNameContaining(
+            @PathVariable("name") String name
+    ) {
+        return new ResponseEntity<>(studentService.getStudentsByLastNameContaining(name), HttpStatus.OK);
+    }
 }
