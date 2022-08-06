@@ -58,4 +58,11 @@ public class StudentController {
     ) {
         return new ResponseEntity<>(studentService.getStudentEmailIdByName(name), HttpStatus.OK);
     }
+
+    @GetMapping(path = "/student/native/{name}")
+    public ResponseEntity<List<Student>> getStudentByNameNative(
+            @PathVariable("name") String name
+    ) {
+        return new ResponseEntity<>(studentService.getStudentByNameNative(name), HttpStatus.OK);
+    }
 }

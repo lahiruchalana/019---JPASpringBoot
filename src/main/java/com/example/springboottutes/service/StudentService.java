@@ -38,4 +38,8 @@ public class StudentService {
     public String getStudentEmailIdByName(String name) {
         return studentRepository.getStudentEmailIdByName(name);
     }
+
+    public List<Student> getStudentByNameNative(String name) {
+        return studentRepository.getStudentByNameNative(name);
+    }
 }
