@@ -42,4 +42,8 @@ public class StudentService {
     public List<Student> getStudentByNameNative(String name) {
         return studentRepository.getStudentByNameNative(name);
     }
+
+    public List<Student> getStudentByNameNativeNamedParam(String name) {
+        return studentRepository.getStudentByNameNativeNamedParam(name);
+    }
 }

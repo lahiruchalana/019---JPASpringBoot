@@ -3,6 +3,7 @@ package com.example.springboottutes.repository;
 import com.example.springboottutes.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -28,4 +29,14 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
             nativeQuery = true
     )
     List<Student> getStudentByNameNative(String name);
+
+    // Native Query with multiple params (using Names Params)
+    @Query(
+            value = "SELECT * FROM student_tbl s where s.first_name = :name",
+            nativeQuery = true
+    )
+    List<Student> getStudentByNameNativeNamedParam(
+            @Param("name") String name      // can use for multiple params
+            // @Param("email") String email   // such like examples
+    );
 }
