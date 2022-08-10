@@ -2,8 +2,10 @@ package com.example.springboottutes.service;
 
 import com.example.springboottutes.entity.Student;
 import com.example.springboottutes.repository.StudentRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -45,5 +47,10 @@ public class StudentService {
 
     public List<Student> getStudentByNameNativeNamedParam(String name) {
         return studentRepository.getStudentByNameNativeNamedParam(name);
+    }
+
+    @Transactional
+    public void updateFirstNameByEmailId(String name, String email) {
+        studentRepository.updateStudentNameByEmailId(name, email);
     }
 }

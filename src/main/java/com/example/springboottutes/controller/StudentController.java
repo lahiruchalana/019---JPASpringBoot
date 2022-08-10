@@ -72,4 +72,13 @@ public class StudentController {
     ) {
         return new ResponseEntity<>(studentService.getStudentByNameNativeNamedParam(name), HttpStatus.OK);
     }
+
+    @PutMapping("update/firstname")
+    public ResponseEntity<?> updateFirstNameByEmailId(
+            @RequestParam(required = true) String email,
+            @RequestParam(required = true) String name
+    ) {
+        studentService.updateFirstNameByEmailId(name, email);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

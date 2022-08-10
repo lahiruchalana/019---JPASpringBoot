@@ -2,6 +2,7 @@ package com.example.springboottutes.repository;
 
 import com.example.springboottutes.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -39,4 +40,12 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
             @Param("name") String name      // can use for multiple params
             // @Param("email") String email   // such like examples
     );
+
+    @Modifying
+    @Query(
+            value = "update student_tbl set first_name = ?1 where email_address = ?2",
+            nativeQuery = true
+    )
+    int updateStudentNameByEmailId(String name, String email);
+
 }
