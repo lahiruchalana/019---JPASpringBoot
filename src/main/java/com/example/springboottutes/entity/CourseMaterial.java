@@ -20,8 +20,9 @@ public class CourseMaterial {
     private String url;
 
     @OneToOne(
-            cascade = CascadeType.ALL       // using to create a course material instance when there is no existing course instance related to the course material
-                                            // then first create the course instance and second create the course material instance
+//            cascade = CascadeType.ALL       // using to create a course material instance when there is no existing course instance related to the course material
+            // then first create the course instance and second create the course material instance
+            // when using this you can not use existing course to create a course material
     )
     @JoinColumn(
             name = "course_id",             // identify the foreign key -->> course_id (courseId)
