@@ -41,11 +41,11 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
             // @Param("email") String email   // such like examples
     );
 
-    @Modifying
+    @Modifying              // when do updates, this @Modifying annotation should be there
     @Query(
             value = "update student_tbl set first_name = ?1 where email_address = ?2",
             nativeQuery = true
     )
-    int updateStudentNameByEmailId(String name, String email);
+    int updateStudentNameByEmailId(String name, String email);      // update return type is void or int or Integer (others are not using)
 
 }
