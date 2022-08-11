@@ -32,27 +32,26 @@ public class Student {
     )
     private String emailId;
 
-    @Embedded
-    private Guardian guardian;
-
-    public Guardian getGuardian() {
-        return guardian;
-    }
-
-    public void setGuardian(Guardian guardian) {
-        this.guardian = guardian;
-    }
+//    @Embedded
+//    private Guardian guardian;
+//
+//    public Guardian getGuardian() {
+//        return guardian;
+//    }
+//
+//    public void setGuardian(Guardian guardian) {
+//        this.guardian = guardian;
+//    }
 
     public Student() {
 
     }
 
-    public Student(Long studentId, String firstName, String lastName, String emailId, Guardian guardian) {
+    public Student(Long studentId, String firstName, String lastName, String emailId) {
         this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
-        this.guardian = guardian;
     }
 
     public Long getStudentId() {
@@ -94,7 +93,6 @@ public class Student {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", emailId='" + emailId + '\'' +
-                ", guardian=" + guardian +
                 '}';
     }
 }
