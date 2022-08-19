@@ -30,4 +30,12 @@ public class CourseController {
         courseService.addNewCourse(course);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @DeleteMapping(path = "{courseId}")
+    public ResponseEntity<?> deleteCourseById(
+            @PathVariable("courseId") Long courseId
+    ) {
+        courseService.deleteCourseById(courseId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

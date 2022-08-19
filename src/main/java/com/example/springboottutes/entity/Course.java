@@ -22,8 +22,9 @@ public class Course {
     private String courseName;
     private Integer credits;
 
+    // Bi directional mapping
     @OneToOne(
-            mappedBy = "course"     // Bi directional mapping
+            mappedBy = "course"
     )
     private CourseMaterial courseMaterial;
 
