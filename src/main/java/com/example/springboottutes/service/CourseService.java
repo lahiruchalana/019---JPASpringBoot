@@ -4,6 +4,8 @@ import com.example.springboottutes.entity.Course;
 import com.example.springboottutes.repository.CourseRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CourseService {
 
@@ -15,5 +17,9 @@ public class CourseService {
 
     public void addNewCourse(Course course) {
         courseRepository.save(course);
+    }
+
+    public List<Course> getCourses() {
+        return courseRepository.findAll();
     }
 }

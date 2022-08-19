@@ -22,6 +22,11 @@ public class Course {
     private String courseName;
     private Integer credits;
 
+    @OneToOne(
+            mappedBy = "course"     // Bi directional mapping
+    )
+    private CourseMaterial courseMaterial;
+
     public Course() {
 
     }

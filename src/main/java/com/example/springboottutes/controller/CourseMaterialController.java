@@ -30,4 +30,12 @@ public class CourseMaterialController {
     public ResponseEntity<List<CourseMaterial>> getAllCourseMaterials() {
         return new ResponseEntity<>(courseMaterialService.getAllCourseMaterials(), HttpStatus.OK);
     }
+
+    @DeleteMapping(path = "{courseMaterialId}")
+    public ResponseEntity<?> deleteCourseMaterialById(
+            @PathVariable("courseMaterialId") Long courseMaterialId
+    ) {
+        courseMaterialService.deleteCourseMaterialById(courseMaterialId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
